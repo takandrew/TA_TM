@@ -90,13 +90,15 @@ namespace TA_TM
                 StartButton.Enabled = true;
                 TableGridView.Columns.Add("", "");
                 TableGridView.Columns.Add("Q1", "Q1");
+                alphabetList.Add("_");
                 for (int i = 0; i < alphabetList.Count; i++)
                     TableGridView.Rows.Add(alphabetList[i]);
-                TableGridView.Rows.Add("");
                 for (int i = -alphabetList.Count*10; i <= alphabetList.Count*10; i++)
                     CommandGridView.Columns.Add("", "");
                 CommandGridView.Rows.Add("", "");
                 CommandGridView.Rows.Add("", "");
+                for (int i = 0; i < CommandGridView.Columns.Count; i++)
+                    CommandGridView.Rows[1].Cells[i].Value = "_";
             }
             else
             {
@@ -214,6 +216,12 @@ namespace TA_TM
                     return;
                 }
                 currentColumn = Convert.ToInt32(currentCommand[2]);
+                if (currentColumn == 0)
+                {
+                    MessageBox.Show("Программа успешно выполнена", "Выполнение");
+                    currentColumn = 1;
+                    return;
+                }
                 if ((currentColumn <= 0) && (currentColumn > TableGridView.Columns.Count))
                 {
                     MessageBox.Show("Команда введена некорректно. \n Состояние некорректно", "Ошибка!");
