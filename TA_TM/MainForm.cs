@@ -231,5 +231,17 @@ namespace TA_TM
                 MessageBox.Show("Необходимо установить указатель ленты на начало выполнения команды", "Ошибка!");
             }
         }
+
+        private void CommandGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (CommandGridView.Rows.Count == 2)
+                if (CommandGridView.Rows[1].Cells[CommandGridView.ColumnCount-1].Selected == true)
+                {
+                    for (int i = 0; i < alphabetList.Count * 10; i++)
+                        CommandGridView.Columns.Add("", "");
+                    for (int i = 0; i < CommandGridView.ColumnCount; i++)
+                        CommandGridView.Rows[1].Cells[i].Value = "_";
+                }
+        }
     }
 }

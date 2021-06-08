@@ -122,6 +122,7 @@ namespace TA_TM
             this.CommandGridView.Size = new System.Drawing.Size(705, 84);
             this.CommandGridView.TabIndex = 7;
             this.CommandGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CommandGridView_CellClick);
+            this.CommandGridView.SelectionChanged += new System.EventHandler(this.CommandGridView_SelectionChanged);
             // 
             // StartButton
             // 
