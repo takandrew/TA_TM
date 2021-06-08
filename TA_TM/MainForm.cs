@@ -128,6 +128,9 @@ namespace TA_TM
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < TableGridView.Rows.Count; i++)
+                for (int j = 0; j < TableGridView.ColumnCount; j++)
+                    TableGridView.Rows[i].Cells[j].Selected = false;
             int pointer = -1;
             for (int i = 0; i < CommandGridView.Rows[0].Cells.Count; i++)
                 if ((CommandGridView.Rows[0].Cells[i].Value != null)
